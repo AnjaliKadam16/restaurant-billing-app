@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Menu</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Manage Menu</h1>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="cart" style="width: 40%;">
+        <h2>Add Item</h2>
+        <form id="addForm">
+            <input type="text" name="name" placeholder="Item Name" required>
+            <input type="number" name="price" placeholder="Price" required>
+            <button class="main-btn">Add Item</button>
+        </form>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="cart" style="width: 60%;">
+        <h2>Menu List</h2>
+
+        <ul id="menuList">
+            {% for item in menu %}
+            <li class="cart-row">
+                <span>{{ item.name }} - ₹{{ item.price }}</span>
+                <button class="delete-btn" data-id="{{ item.id }}">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+
+<script>
+// 🔥 ADD ITEM
+document.getElementById("addForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch('/add_item', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(() => location.reload());
+});
+
+// 🔥 DELETE ITEM
+document.querySelectorAll(".delete-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        let id = this.dataset.id;
+
+        fetch('/delete_item/' + id, {
+            method: 'DELETE'
+        })
+        .then(() => location.reload());
+    });
+});
+</script>
+
+</body>
+</html>

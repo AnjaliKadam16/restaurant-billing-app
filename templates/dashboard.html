@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body {
+    background: #0f1419;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 25px 0;
+    font-weight: 600;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: #1c212b;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #2f3645;
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: #0984e3;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<div class="dashboard">
+
+    <div class="card" data-link="/">
+        <div class="icon">🧾</div>
+        Create Bill
+    </div>
+
+    <div class="card" data-link="/admin">
+        <div class="icon">🍔</div>
+        Manage Menu
+    </div>
+
+    <div class="card" data-link="/orders">
+        <div class="icon">📋</div>
+        View Orders
+    </div>
+
+    <div class="card" data-link="/logout">
+        <div class="icon">🚪</div>
+        Logout
+    </div>
+
+</div>
+
+<script>
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+            window.location.href = card.dataset.link;
+        });
+    });
+</script>
+
+</body>
+</html>

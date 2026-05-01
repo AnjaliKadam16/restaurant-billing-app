@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121417;
+    color: white;
+}
+
+/* Header */
+h1 {
+    background: #1f2933;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Menu Grid */
+.menu {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* Menu Items */
+.menu-item {
+    min-width: 120px;
+    height: 80px;
+    background: #1c212b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #2f3645;
+    transition: 0.2s;
+}
+.menu-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #2f3645;
+}
+
+.delete-btn {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.menu-item:hover {
+    background: #00a8ff;
+}
+
+/* Cart */
+.cart {
+    width: 300px;
+    background: #1c212b;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Cart Row */
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #2f3645;
+}
+
+/* Buttons */
+.small-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+    background: #2f3645;
+    color: white;
+    cursor: pointer;
+}
+
+.small-btn:hover {
+    background: #00a8ff;
+}
+
+.delete-btn {
+    background: #e84118;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #c23616;
+}
+
+/* Totals */
+.totals {
+    margin-top: 20px;
+}
+
+/* Inputs */
+input, select {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #2f3645;
+    color: white;
+}
+
+/* Main Button */
+.main-btn {
+    padding: 12px;
+    margin-top: 10px;
+    width: 100%;
+    background: #44bd32;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.main-btn:hover {
+    background: #2ecc71;
+}

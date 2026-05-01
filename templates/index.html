@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Billing</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Restaurant Billing</h1>
+
+<div class="container">
+
+    <!-- MENU -->
+    <div class="menu">
+        {% for item in menu %}
+            <div class="menu-item"
+                 data-name="{{ item.name }}"
+                 data-price="{{ item.price }}">
+                {{ item.name }} <br> ₹{{ item.price }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cart"></ul>
+
+        <div class="totals">
+            <h3>Subtotal: ₹<span id="subtotal">0</span></h3>
+            <h3>GST (5%): ₹<span id="gst">0</span></h3>
+            <h2>Total: ₹<span id="total">0</span></h2>
+        </div>
+
+        <input type="tel" id="phone" placeholder="+91XXXXXXXXXX" required>
+
+        <select id="payment">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="UPI">UPI</option>
+        </select>
+
+        <button class="main-btn" id="generateBtn">Generate Bill</button>
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
+

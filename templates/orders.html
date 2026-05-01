@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Order History</h1>
+
+<div class="container">
+    <div class="cart">
+
+        {% if orders|length == 0 %}
+            <p>No orders yet ❌</p>
+        {% endif %}
+
+        {% for order in orders %}
+        <div class="cart-row" style="flex-direction: column; align-items: flex-start; margin-bottom: 15px;">
+            
+            <strong>Order #{{ order.id }}</strong>
+
+            <span>📞 {{ order.phone }}</span>
+            <span>💳 {{ order.payment_method }}</span>
+            <span>💰 ₹{{ order.total }}</span>
+
+            <a href="/invoice/{{ order.id }}" 
+               style="margin-top: 5px; color: #00a8ff; text-decoration: none;">
+               View Invoice →
+            </a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>
