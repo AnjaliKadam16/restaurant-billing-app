@@ -1,3 +1,7 @@
+import os
+
+if not os.path.exists("database.db"):
+    import init_db
 from flask import Flask, render_template, request, jsonify, redirect, session
 from twilio.rest import Client
 from dotenv import load_dotenv
